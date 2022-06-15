@@ -13,6 +13,23 @@ app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+// Require Routes
+app.use(
+  "/api/",
+  // require("./routes/user"),
+  require("./routes/auth")
+  // require("./routes/company"),
+  // require("./routes/seller"),
+  // require("./routes/currentstate"),
+  // require("./routes/customer"),
+  // require("./routes/category"),
+  // require("./routes/status"),
+  // require("./routes/project"),
+  // require("./routes/costtype"),
+  // require("./routes/template"),
+  // require("./routes/pricelist"),
+  // require("./routes/item")
+);
 
 // app.use('/uploads',express.static('uploads'));
 const db = require("./models");
@@ -27,24 +44,9 @@ mongoose.connect(
   }
 );
 
-// Require Routes
-require("./routes/user")(app);
-require("./routes/auth")(app);
-require("./routes/company")(app);
-require("./routes/seller")(app);
-require("./routes/currentstate")(app);
-require("./routes/customer")(app);
-require("./routes/category")(app);
-require("./routes/status")(app);
-require("./routes/project")(app);
-require("./routes/costtype")(app);
-require("./routes/template")(app);
-require("./routes/pricelist")(app);
-require("./routes/item")(app);
-
 // Baseurl
 app.get("/start", function (req, res) {
-  res.send("Backend Running Successfull on Heroku");
+  res.send("Backend Running Success on Heroku");
 });
 
 // App Listing port
