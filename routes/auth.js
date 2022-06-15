@@ -4,6 +4,13 @@ const router = express.Router();
 const authController = require("../controller/auth.controller");
 const { uploadFile } = require("../middleware/multer");
 
+const {
+  register,
+  login,
+  getUser,
+  getAllUser,
+} = require("../controller/auth.controller");
+
 router.post(
   "/register",
   uploadFile.single("profilePicture"),

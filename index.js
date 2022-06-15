@@ -1,9 +1,8 @@
 require("dotenv").config();
+require("./config/connection");
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
-
 const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 
@@ -32,20 +31,8 @@ app.use(
 );
 
 // app.use('/uploads',express.static('uploads'));
-const db = require("./models");
-mongoose.connect(
-  db.url,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => {
-    console.log(`Connected to MongoDB URL ${process.env.DB_URL}`);
-  }
-);
-
 // Baseurl
-app.get("/start", function (req, res) {
+app.get("/", function (req, res) {
   res.send("Backend Running Success on Heroku");
 });
 
