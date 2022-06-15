@@ -10,6 +10,8 @@ const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 
 
+
+
 app.use(cors());
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -48,6 +50,12 @@ require("./routes/projectLabel")(app);
 require("./routes/pricelistcategory")(app);
 require("./routes/textcategory")(app);
 require("./routes/image")(app);
+
+
+app.get("/", function(req,res){
+  res.send("Working")
+})
+
 
 app.listen(PORT, function () {
     console.log("Listening on port " + PORT + ".");
