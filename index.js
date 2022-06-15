@@ -36,14 +36,14 @@ require("./routes/auth")(app);
 require("./routes/company")(app);
 require("./routes/seller")(app);
 require("./routes/currentstate")(app);
-// require("./routes/customer")(app);
-// require("./routes/category")(app);
-// require("./routes/status")(app);
-// require("./routes/project")(app);
-// require("./routes/costtype")(app);
-// require("./routes/template")(app);
-// require("./routes/pricelist")(app);
-// require("./routes/item")(app);
+require("./routes/customer")(app);
+require("./routes/category")(app);
+require("./routes/status")(app);
+require("./routes/project")(app);
+require("./routes/costtype")(app);
+require("./routes/template")(app);
+require("./routes/pricelist")(app);
+require("./routes/item")(app);
 
 app.listen(PORT, function () {
   console.log("Listening on port " + PORT + ".");
