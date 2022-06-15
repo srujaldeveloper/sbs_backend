@@ -1,4 +1,4 @@
-const dbConfig = require("../config/db.config");
+const dbConfig = require("../config/connection");
 
 
 const mongoose = require("mongoose");
@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 const db = {};
 db.mongoose = mongoose;
-db.url = dbConfig.url;
+db.url = process.env.DB_URL;
 db.users = require("./User")(mongoose);
 
 module.exports = db;
