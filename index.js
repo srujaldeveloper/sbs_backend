@@ -43,7 +43,7 @@ require("./routes/pricelist")(app);
 require("./routes/item")(app);
 
 // Baseurl
-app.get("/", function (req, res) {
+app.get("/start", function (req, res) {
   res.send("Backend Running Successfull on Heroku");
 });
 
