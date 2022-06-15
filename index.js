@@ -34,8 +34,8 @@ mongoose.connect(
 require("./routes/user")(app);
 require("./routes/auth")(app);
 require("./routes/company")(app);
-// require("./routes/seller")(app);
-// require("./routes/currentstate")(app);
+require("./routes/seller")(app);
+require("./routes/currentstate")(app);
 // require("./routes/customer")(app);
 // require("./routes/category")(app);
 // require("./routes/status")(app);
