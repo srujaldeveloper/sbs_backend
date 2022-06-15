@@ -1,5 +1,5 @@
 
-const projectModal = require("../models/project");
+const projectModal = require("../models/Project");
 
 //Create new project
 exports.createProject = async (req, res) => {

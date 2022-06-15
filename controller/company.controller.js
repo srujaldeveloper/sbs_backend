@@ -1,4 +1,4 @@
-const companyModal = require("../models/company");
+const companyModal = require("../models/Company");
 
 //Create new Company
 exports.createCompany = async (req, res) => {
