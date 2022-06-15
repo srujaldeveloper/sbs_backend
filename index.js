@@ -1,12 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
-
-app.get("/", function (req, res) {
-  res.send("Working");
-});
-const dotenv = require("dotenv").config();
 
 const cors = require("cors");
 const PORT = process.env.PORT || 8000;
@@ -27,10 +23,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   },
   () => {
-    console.log("Connected to MongoDB");
+    console.log(`Connected to MongoDB URL ${process.env.DB_URL}`);
   }
 );
 
+// Require Routes
 require("./routes/user")(app);
 require("./routes/auth")(app);
 require("./routes/company")(app);
@@ -45,7 +42,12 @@ require("./routes/template")(app);
 require("./routes/pricelist")(app);
 require("./routes/item")(app);
 
+// Baseurl
+app.get("/", function (req, res) {
+  res.send("Backend Running Successfull on Heroku");
+});
+
+// App Listing port
 app.listen(PORT, function () {
   console.log("Listening on port " + PORT + ".");
 });
-
