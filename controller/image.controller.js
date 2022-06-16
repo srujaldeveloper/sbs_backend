@@ -9,7 +9,7 @@ exports.createImage = async (req, res) => {
       req.file.originalname != null
     ) {
       req.body.logo = req.file.originalname;
-      req.body.imageUrl = "http://localhost:4000/" + req.file.filename;
+      req.body.imageUrl = "https://sbsbackend.herokuapp.com/" + req.file.filename;
       // req.body.imageUrl = req.file.filename;
 
     }
@@ -78,7 +78,7 @@ exports.updateImage = async (req, res) => {
     req.file.originalname != null
   ) {
     req.body.logo = req.file.originalname;
-    req.body.imageUrl = "http://localhost:4000/" + req.file.filename;
+    req.body.imageUrl = "https://sbsbackend.herokuapp.com/" + req.file.filename;
     // req.body.imageUrl = req.file.filename;
 
   }
