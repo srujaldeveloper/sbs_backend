@@ -25,7 +25,6 @@ module.exports = app => {
   router.delete("/costtype",  costTypeController.deleteAllCostType);
 
   router.get("/costtypebypricelist/:id",  costTypeController.getCostTypeByPriceList);
-
   
 
   app.use('/api', router);

@@ -139,7 +139,6 @@ exports.deleteAllCostType = (req, res) => {
 //delete all cost
 exports.getCostTypeByPriceList = async (req, res) => {
   const id = req.params.id;
-  console.log("getCostTypeByPriceList", JSON.stringify(req.params.id));
   priceListModal.findOne({ _id: id }).then(async (data) => {
     getCostType(data, res);
   });

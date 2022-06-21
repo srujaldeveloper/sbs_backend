@@ -1,4 +1,5 @@
 const projectLabelModal = require("../models/ProjectLabel");
+const textCategoryModal = require("../models/TextCategory");
 
 //Create new category
 exports.createProjectLabel = async (req, res) => {
@@ -27,24 +28,24 @@ exports.getProjectLabel = async (req, res) => {
         res.send(data);
       }
     });
-  } catch (err) {
+  } catch (err) {  
     res.status(500).json(err);
   }
 };
 
 exports.getProjectLabelById = async (req, res) => {
-  const labelId = req.params.id;
-  await projectLabelModal
-    .aggregate([
-      { $match: { textCategory: labelId } },
-      { $sort: { sortOrder: 1 } },
-    ])
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  await textCategoryModal.find({name:req.query.key}).then(async textData=>{
+    const labelId = String(textData[0]._id) ;
+    await projectLabelModal
+      .aggregate([{ $match: { textCategory: labelId } },{ $sort: { sortOrder: 1 } }])
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  })
+ 
 };
 
 //update project label

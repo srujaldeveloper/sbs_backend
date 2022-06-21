@@ -14,7 +14,7 @@ module.exports = (app) => {
   router.get("/projectlabel", projectLabelController.getProjectLabel);
 
   //get projectlabel by id
-  router.get("/projectlabel/:id", projectLabelController.getProjectLabelById);
+  router.get("/getprojectlabel/", projectLabelController.getProjectLabelById);
 
   //delete project by id
   router.delete("/projectlabel/:id", projectLabelController.deleteProjectLabel);
